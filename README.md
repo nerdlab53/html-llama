@@ -10,7 +10,7 @@
 
 ## Contents 
 - The individual Python scripts in this repo contains chunks of code individually as well as a notebook for easy implementation of fine tuning and inference.
-- The dataset and the preprocessed dataset are also available.
+- The dataset and the preprocessed dataset are also available as csv files.
 
 ## Requirements
 - Requirements are listed in requirements.txt and are as follows :
