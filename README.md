@@ -139,6 +139,9 @@
   ```
 **NOTE** : The above examples may slightly differ from the training script.
 ## Evals
+- Below are the training and validation graphs for the training :
+  ![Alt text](./assets/eval_0.png)
+  ![Alt text](.a/assets/eval_1.png)
 
 ## Inference 
 
