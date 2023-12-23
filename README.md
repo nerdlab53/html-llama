@@ -33,7 +33,7 @@
 -  Trained using QLoRA for quantized low precision training in 4-bit for less training time and better performance on the selected dataset.
 -  Used BitsAndBytes for loading the quantized model from HuggingFace.
 -  Bits and Bytes config is given below :
-   ``` 
+   ```Python
    from transformers import BitsAndBytesConfig
     load_in_4bit = True
     bnb_4bit_quant_type = "nf4"
