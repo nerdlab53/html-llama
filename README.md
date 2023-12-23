@@ -141,8 +141,45 @@
 ## Evals
 - Below are the training and validation graphs for the training :
   ![Alt text](./assets/eval_0.png)
-  ![Alt text](./assets/eval_1.png)
 
 ## Inference 
+- There model can be inferred directly from the HuggingFace Hub for inference or training by :
+  ```Python
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+    model_name = 'retr0sushi04/llama-2-7b-html-nous'
+    model = AutoModelForCausalLM.from_pretrained(
+      model_name,
+      quantization_config=quantization_config,
+      device_map={"":0}        # loads the model to the GPU if available
+    )
+    model.config.use_cache = False
+    model.config.pretraining_tp = 1
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+    tokenizer.pad_token = tokenizer.eos_token
+    tokenizer.padding_side = "right"
+  ```
+- Another way is to directly use the model after using the script and test the uploaded model by inferring it in code, done by :
+  ```Python
+    # make sure to install the requirements so as to not run into any problems at trainig or runtime
+    !python -m pip install -r requirements.txt
 
+    # run script after successfully installing requirements
+    !python fine_tuning_assignment_final.py --hf-token ["HF_TOKEN"]  --hf-repo ["REPO_NAME"]
+
+    # infer your newly trained model!
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+    
+    device_map = {"":0}
+    
+    model = AutoModelForCausalLM.from_pretrained("["REPO_NAME"]", load_in_4bit=True, torch_dtype=torch.float16, device_map=device_map)
+    tokenizer = AutoTokenizer.from_pretrained("["REPO_NAME"]")
+    
+    
+    task = "{TASK ENTERED BY USER}"
+    
+    pipe = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=200)
+    result = pipe(f" [INST] {task} [/INST]")
+    print(result[0]['generated_text'])
+  ```
 ## Imporvements and possible challenges
