@@ -8,12 +8,12 @@
 
 ## Requirements
 - Requirements are listed in requirements.txt and are as follows :
-- torch==2.1.0+cu121
+- `torch==2.1.0+cu121
   transformers==4.31.0 
   trl==0.4.7 
   bitsandbytes==0.40.2 
   peft==0.4.0 
-  accelerate==0.21.0
+  accelerate==0.21.0`
   
 ## Model & Dataset Selection
 
