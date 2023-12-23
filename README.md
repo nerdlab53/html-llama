@@ -137,7 +137,7 @@
         )
         return trainer
   ```
-##NOTE : The above are examples which may slightly differ from the training script.
+**NOTE** : The above examples may slightly differ from the training script.
 ## Evals
 
 ## Inference 
