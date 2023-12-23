@@ -1,6 +1,6 @@
 
 # Fine tuned Llama 2 7B for HTML Code generation
-
+![Alt text](./assets/html-llama.jpeg)
 
 ## About
 - This is fine tuned Llama 2 which generates HTML code for a given piece of prompt.
