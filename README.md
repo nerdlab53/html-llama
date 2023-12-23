@@ -137,6 +137,11 @@
         )
         return trainer
   ```
+- After creating the training instance use
+  ```Python
+    trainer.train()
+  ```
+  to start the training
 **NOTE** : The above examples may slightly differ from the training script.
 ## Evals
 - Below are the training and validation graphs for the training :
