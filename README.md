@@ -16,12 +16,7 @@
 - Requirements are listed in requirements.txt and are as follows :
 - Installation :
 - ```Python
-    pip install torch==2.1.0
-    transformers==4.31.0 
-    trl==0.4.7 
-    bitsandbytes==0.40.2 
-    peft==0.4.0 
-    accelerate==0.21.0
+    !pip install torch==2.1.0 transformers==4.31.0 trl==0.4.7 bitsandbytes==0.40.2 peft==0.4.0 accelerate==0.21.0
   ```
 - **NOTE**: Install torch with CUDA support if using on GPU for even faster training.
 
