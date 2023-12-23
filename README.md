@@ -1,11 +1,13 @@
 
 # Fine tuned Llama 2 7B for HTML Code generation
 
+
 ## About
 - This is fine tuned Llama 2 which generates HTML code for a given piece of prompt.
 - It has been trained using QLoRA (Quantized Low Rank Adaptation) for maximizing the model training performance while keeping the GPU demands reasonably low for training and inference.
 - Model chosen for fine-tuning : [NousResearch/Llama-2-7b-chat-hf](https://huggingface.co/NousResearch/Llama-2-7b-chat-hf)
 - Trained on retr0sushi04/html_pre_processed can be found on HuggingFace : [dataset](https://huggingface.co/datasets/retr0sushi04/html_pre_processed) which is a preprocessed version of [raw dataset](https://huggingface.co/datasets/jawerty/html_dataset).
+
 
 ## Requirements
 - Requirements are listed in requirements.txt and are as follows :
@@ -23,12 +25,14 @@
   peft==0.4.0 
   accelerate==0.21.0`
 - **NOTE**: Install torch with CUDA support if using on GPU for even faster training.
+
   
 ## Model & Dataset Selection
 - Model Selected : [NousResearch/Llama-2-7b-chat-hf](https://huggingface.co/NousResearch/Llama-2-7b-chat-hf)
   - 7B fine-tuned Llama 2 optimized for dialogue use cases.
 - Dataset Selected : [raw dataset](https://huggingface.co/datasets/jawerty/html_dataset)
   - Pre processed and uploaded further to HuggingFace as [dataset](https://huggingface.co/datasets/retr0sushi04/html_pre_processed)
+
  
 ## Training Specifications
 -  Trained using QLoRA for quantized low precision training in 4-bit for less training time and better performance on the selected dataset.
@@ -137,15 +141,18 @@
         )
         return trainer
   ```
-- After creating the training instance use
+  
+- After creating the training instance use the instance to start the training :
   ```Python
     trainer.train()
   ```
-  to start the training
+  
 **NOTE** : The above examples may slightly differ from the training script.
+
 ## Evals
 - Below are the training and validation graphs for the training :
   ![Alt text](./assets/eval_0.png)
+
 
 ## Inference 
 - There model can be inferred directly from the HuggingFace Hub for inference or training by :
@@ -181,10 +188,12 @@
     tokenizer = AutoTokenizer.from_pretrained("["REPO_NAME"]")
     
     
-    task = "{TASK ENTERED BY USER}"
+    task = "{Prompt ENTERED BY USER}"
     
     pipe = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=200)
     result = pipe(f" [INST] {task} [/INST]")
     print(result[0]['generated_text'])
   ```
+
+  
 ## Imporvements and possible challenges
